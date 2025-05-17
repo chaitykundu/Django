@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href ="{% static 'myfirst.css' %}">
+<body>
+<!--create variables-->
+<ul>
+    {% for x in mymembers %}
+        <li>{{ x.firstname }}</li>
+    {% endfor %}
+</ul>
+<!--if and for django template tags-->
+ {% if greeting == 1 %}
+  <h2>Hello Natasha</h2>
+  {% elif greeting == 2 %}
+    <h2>Welcome</h2>
+ {% else %}
+  <h2>Bye</h2>
+ {% endif %}
+
+
+ {% if x == y %}
+  <h1>YES</h1>
+{% else %}
+  <h1>NO</h1>
+{% endif %}
+<!--data fetch in loop -->
+{% for x in members reversed %}
+  <h1>{{ x.id }}</h1>
+  <p>
+    {{ x.firstname }}
+    {{ x.lastname }}
+  </p>
+{% endfor %} 
+
+<!--Footer-->
+<p>This page contains footer template</p>
+{% include 'footer.html' %}
+
+<p>In views.py you can see how to create the variable.</p>
+<p>In template.html you can see how to use the variable.</p>
+
+</body>
+</html>  
